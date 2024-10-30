@@ -103,7 +103,7 @@ ensure_entware_installed() {
 	remount_rw
     if [ ! -f "/opt/bin/opkg" ]; then
         echo -e "\e[1;32m安装 Entware/OPKG\e[0m"
-        cd /tmp && wget -O installentware.sh "https://mirror.ghproxy.com/https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/installentware.sh" && chmod +x installentware.sh && ./installentware.sh
+        cd /tmp && wget -O installentware.sh "https://mirror.ghproxy.com/https://raw.githubusercontent.com/$GITUSER/RM502Q/$GITTREE/installentware.sh" && chmod +x installentware.sh && ./installentware.sh
         if [ "$?" -ne 0 ]; then
             echo -e "\e[1;31mEntware/OPKG 安装失败，请检查您的互联网连接或存储库URL。\e[0m"
             exit 1
@@ -302,8 +302,8 @@ set_simpleadmin_passwd(){
 	ensure_entware_installed
  	opkg update
   	opkg install libaprutil
-	wget -O /usrdata/root/bin/htpasswd https://mirror.ghproxy.com/https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/simpleadmin/htpasswd && chmod +x /usrdata/root/bin/htpasswd
-	wget -O /usrdata/root/bin/simplepasswd https://mirror.ghproxy.com/https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/simpleadmin/simplepasswd && chmod +x /usrdata/root/bin/simplepasswd
+	wget -O /usrdata/root/bin/htpasswd https://mirror.ghproxy.com/https://raw.githubusercontent.com/$GITUSER/RM502Q/$GITTREE/simpleadmin/htpasswd && chmod +x /usrdata/root/bin/htpasswd
+	wget -O /usrdata/root/bin/simplepasswd https://mirror.ghproxy.com/https://raw.githubusercontent.com/$GITUSER/RM502Q/$GITTREE/simpleadmin/simplepasswd && chmod +x /usrdata/root/bin/simplepasswd
 	echo -e "\e[1;32m将来您需要使用web控制台（admin）密码访问...\e[0m"
 	echo -e "\e[1;32m在控制台中键入web控制台的密码，然后按enter键\e[0m"
 	/usrdata/root/bin/simplepasswd
@@ -335,20 +335,20 @@ install_simple_admin() {
 			echo -e "\e[1;31m2) 开始安装新版控制台\e[0m"
 			mkdir /usrdata/simpleupdates > /dev/null 2>&1
 		    mkdir /usrdata/simpleupdates/scripts > /dev/null 2>&1
-		    wget -O /usrdata/simpleupdates/scripts/update_socat-at-bridge.sh https://mirror.ghproxy.com/https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/simpleupdates/scripts/update_socat-at-bridge.sh && chmod +x /usrdata/simpleupdates/scripts/update_socat-at-bridge.sh
+		    wget -O /usrdata/simpleupdates/scripts/update_socat-at-bridge.sh https://mirror.ghproxy.com/https://raw.githubusercontent.com/$GITUSER/RM502Q/$GITTREE/simpleupdates/scripts/update_socat-at-bridge.sh && chmod +x /usrdata/simpleupdates/scripts/update_socat-at-bridge.sh
 		    echo -e "\e[1;32m安装/更新 依赖软件: socat-at-bridge\e[0m"
 			echo -e "\e[1;32m请等待....\e[0m"
 			/usrdata/simpleupdates/scripts/update_socat-at-bridge.sh
 			echo -e "\e[1;32m 依赖包: socat-at-bridge 已被更新/安装完成.\e[0m"
 			sleep 1
-		    wget -O /usrdata/simpleupdates/scripts/update_simplefirewall.sh https://mirror.ghproxy.com/https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/simpleupdates/scripts/update_simplefirewall.sh && chmod +x /usrdata/simpleupdates/scripts/update_simplefirewall.sh
+		    wget -O /usrdata/simpleupdates/scripts/update_simplefirewall.sh https://mirror.ghproxy.com/https://raw.githubusercontent.com/$GITUSER/RM502Q/$GITTREE/simpleupdates/scripts/update_simplefirewall.sh && chmod +x /usrdata/simpleupdates/scripts/update_simplefirewall.sh
 		    echo -e "\e[1;32m安装/更新 依赖软件: simplefirewall\e[0m"
 			echo -e "\e[1;32m请等待....\e[0m"
 			/usrdata/simpleupdates/scripts/update_simplefirewall.sh
 			echo -e "\e[1;32m 依赖包: simplefirewall 已被更新/安装完成.\e[0m"
 			sleep 1
 			set_simpleadmin_passwd
-		    wget -O /usrdata/simpleupdates/scripts/update_simpleadmin.sh https://mirror.ghproxy.com/https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/simpleupdates/scripts/update_simpleadmin.sh && chmod +x /usrdata/simpleupdates/scripts/update_simpleadmin.sh
+		    wget -O /usrdata/simpleupdates/scripts/update_simpleadmin.sh https://mirror.ghproxy.com/https://raw.githubusercontent.com/$GITUSER/RM502Q/$GITTREE/simpleupdates/scripts/update_simpleadmin.sh && chmod +x /usrdata/simpleupdates/scripts/update_simpleadmin.sh
 			echo -e "\e[1;32m安装/更新: web控制台 组件\e[0m"
 			echo -e "\e[1;32m请等待....\e[0m"
 			/usrdata/simpleupdates/scripts/update_simpleadmin.sh
@@ -487,7 +487,7 @@ echo -e "\e[1;31m2) Installing tailscale from the $GITTREE branch\e[0m"
 			ensure_entware_installed
 			mkdir /usrdata/simpleupdates > /dev/null 2>&1
 		    mkdir /usrdata/simpleupdates/scripts > /dev/null 2>&1
-		    wget -O /usrdata/simpleupdates/scripts/update_tailscale.sh https://mirror.ghproxy.com/https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/simpleupdates/scripts/update_tailscale.sh && chmod +x /usrdata/simpleupdates/scripts/update_tailscale.sh
+		    wget -O /usrdata/simpleupdates/scripts/update_tailscale.sh https://mirror.ghproxy.com/https://raw.githubusercontent.com/$GITUSER/RM502Q/$GITTREE/simpleupdates/scripts/update_tailscale.sh && chmod +x /usrdata/simpleupdates/scripts/update_tailscale.sh
 		    echo -e "\e[1;32mInstalling/updating: Tailscale\e[0m"
 			echo -e "\e[1;32mPlease Wait....\e[0m"
 			remount_rw
@@ -513,8 +513,8 @@ configure_tailscale() {
         1)
 	remount_rw
 	cd /lib/systemd/system/
-	wget -O tailscale-webui.service https://mirror.ghproxy.com/https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/main/tailscale/systemd/tailscale-webui.service
-  	wget -O tailscale-webui-trigger.service https://mirror.ghproxy.com/https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/main/tailscale/systemd/tailscale-webui-trigger.service
+	wget -O tailscale-webui.service https://mirror.ghproxy.com/https://raw.githubusercontent.com/$GITUSER/RM502Q/main/tailscale/systemd/tailscale-webui.service
+  	wget -O tailscale-webui-trigger.service https://mirror.ghproxy.com/https://raw.githubusercontent.com/$GITUSER/RM502Q/main/tailscale/systemd/tailscale-webui-trigger.service
      	ln -sf /lib/systemd/system/tailscale-webui-trigger.service /lib/systemd/system/multi-user.target.wants/
      	systemctl daemon-reload
        	echo "Tailscale Web UI Enabled"
@@ -755,7 +755,7 @@ install_sshd() {
 	ensure_entware_installed
     mkdir /usrdata/simpleupdates > /dev/null 2>&1
 	mkdir /usrdata/simpleupdates/scripts > /dev/null 2>&1
-	wget -O /usrdata/simpleupdates/scripts/update_sshd.sh https://mirror.ghproxy.com/https://raw.githubusercontent.com/$GITUSER/quectel-rgmii-toolkit/$GITTREE/simpleupdates/scripts/update_sshd.sh && chmod +x /usrdata/simpleupdates/scripts/update_sshd.sh
+	wget -O /usrdata/simpleupdates/scripts/update_sshd.sh https://mirror.ghproxy.com/https://raw.githubusercontent.com/$GITUSER/RM502Q/$GITTREE/simpleupdates/scripts/update_sshd.sh && chmod +x /usrdata/simpleupdates/scripts/update_sshd.sh
 	echo -e "\e[1;32mInstalling/updating: SSHd\e[0m"
 	echo -e "\e[1;32mPlease Wait....\e[0m"
 	/usrdata/simpleupdates/scripts/update_sshd.sh
